@@ -3,11 +3,13 @@ import PropTypes from "prop-types";
 import "./Button.css";
 
 const Button = ({ subject, getSubjectData, currentSubject }) => {
-  const currentlyActive =
-    currentSubject === subject ? "subject-btn active-btn" : "subject-btn";
-
   return (
-    <button className={currentlyActive} onClick={() => getSubjectData(subject)}>
+    <button
+      className={`subject-btn ${
+        currentSubject === subject ? "active-btn" : ""
+      }`}
+      onClick={() => getSubjectData(subject)}
+    >
       {subject}
     </button>
   );

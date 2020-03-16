@@ -2,10 +2,6 @@
   height: 100vh;
   width: 100%;
   overflow: hidden;
-  background-image: url("http://arunnath.com/i/2017/03/space-stars-wallpapers-desktop-background.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
 }
 
 .scroll-container {
