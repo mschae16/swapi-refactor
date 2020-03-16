@@ -1,0 +1,39 @@
+.loading-container {
+  background: #2B313F;
+  height: 100vh;
+  width: 100%%;
+  padding-top: 270px;
+}
+
+.darth-image {
+  background-image: url('https://brightcove04pmdo-a.akamaihd.net/3653334524001/3653334524001_5381043941001_5379748916001-vs.jpg?pubId=3653334524001&videoId=5379748916001');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  height: 700px;
+  width: 900px;
+  margin: 0 auto;
+}
+
+.loading-container h3 {
+  color: #a1a23c;
+  font-size: 48px;
+  font-weight: bold;
+  text-align: center;
+}
+
+@media screen and (max-width: 580px) {
+  .darth-image {
+    height: 500px;
+    width: 500px;
+    margin: 0px 5px;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .darth-image {
+    height: 350px;
+    width: 350px;
+    margin: 0px auto;
+  }
+}

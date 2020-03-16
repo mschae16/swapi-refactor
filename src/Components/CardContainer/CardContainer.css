@@ -1,0 +1,19 @@
+.card-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-image: url("https://images.template.net/wp-content/uploads/2015/08/Extravagent-Space-Background-Premium-Download.png");
+  background-repeat: repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  padding-top: 270px;
+  overflow: scroll;
+}
+
+@media screen and (max-width: 1140px) {
+  .card-container {
+    justify-content: space-around;
+  }
+}

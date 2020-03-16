@@ -1,0 +1,80 @@
+.data-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: #e9ebe8;
+  border: 1.5px solid #b66260;
+  border-radius: 3%;
+  margin: 10px;
+  padding: 4px;
+  width: 260px;
+  height: 300px;
+  transition: transform 0.5s;
+}
+
+.data-card:hover {
+  transform: scale(1.05);
+}
+
+.card-info {
+  color: #882539;
+  font-size: 16px;
+  margin-right: 6px;
+  text-transform: uppercase;
+}
+
+.subject-info {
+  margin: 3px;
+  padding-right: 10px;
+  height: 260px;
+  width: 260px;
+  overflow: scroll;
+}
+
+.favorite-btn {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  background-color: #3e5e77;
+  opacity: 0.6;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 11px;
+  box-shadow: 3px 1px 1px black;
+  height: 30px;
+  width: 80px;
+  cursor: pointer;
+  outline: none;
+}
+
+.favorite-btn:hover {
+  background-color: #0c1c35;
+  font-weight: bold;
+  height: 31px;
+  width: 81px;
+}
+
+.starred {
+  background-color: #a1a23c;
+  opacity: 0.7;
+}
+
+@media screen and (max-width: 745px) {
+  .data-card {
+    height: 280px;
+    width: 280px;
+  }
+}
+
+@media screen and (max-width: 470px) {
+  .data-card {
+    height: 280px;
+    width: 250px;
+  }
+
+  .subject-info {
+    padding-right: 2px;
+    width: 249px;
+  }
+}

@@ -1,0 +1,81 @@
+.navigation {
+  align-items: flex-end;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  height: 70%;
+  width: 100%;
+}
+
+.all-favorites-btn {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  background-color: #3E5E77;
+  opacity: 0.9;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 11px;
+  box-shadow: 3px 1px 1px lightgray;
+  height: 30px;
+  width: 120px;
+  cursor: pointer;
+  outline: none;
+}
+
+.all-favorites-btn:hover {
+  background-color: #0C1C35;
+  font-weight: bold;
+  height: 31px;
+  width: 121px;
+}
+
+.fave-active {
+  background-color: #A1A23C;
+}
+
+.favorites-count {
+  background-color: white;
+  color: #A1A23C;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 3px;
+  height: 20px;
+  width: 20px;
+  padding: 2px 0 0 1px;
+  margin-left: 5px;
+}
+
+@media screen and (max-width: 745px) {
+  .navigation {
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 5px;
+  }
+
+  .all-favorites-btn {
+    width: 150px;
+  }
+
+  .all-favorites-btn:hover {
+    width: 151px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .navigation {
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 5px;
+  }
+
+  .all-favorites-btn {
+    font-size: 12px;
+    width: 80px;
+  }
+
+  .all-favorites-btn:hover {
+    width: 81px;
+  }
+}
