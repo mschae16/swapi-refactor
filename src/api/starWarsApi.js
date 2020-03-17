@@ -26,9 +26,8 @@ export const fetchHomeWorld = peopleResults => {
 };
 
 export const fetchPlanets = planetResults => {
-  const planetArray = planetResults.map(planet => {
-    const planetResidents = fetchResidents(planet.residents);
-    return planetResidents;
+  const planetArray = planetResults.map(async planet => {
+    return await await fetchResidents(planet.residents);
   });
 
   return Promise.all(planetArray).then(response => {
@@ -43,23 +42,18 @@ export const fetchPlanets = planetResults => {
           population: planetResults[i].population,
           climate: planetResults[i].climate
         },
-        { residents: array }
+        { residents: array.map(item => item.name) }
       );
     });
   });
 };
 
-export const fetchResidents = (planetResidentsArray, setError) => {
-  const planetResidents = planetResidentsArray.map(endpoint => {
-    return fetch(endpoint).then(response =>
-      response.status >= 400 ? setError("error") : response.json()
-    );
-  });
-  return Promise.all(planetResidents).then(response => {
-    return response.map(resident => {
-      return resident.name;
-    });
-  });
+export const fetchResidents = async planetResidents => {
+  return Promise.all(
+    planetResidents.map(async endpoint => {
+      return await fetchWrapper(endpoint);
+    })
+  );
 };
 
 export const fetchSpecies = (updatedPeopleResults, setError) => {

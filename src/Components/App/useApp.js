@@ -4,7 +4,6 @@ import {
   fetchHomeWorld,
   fetchPlanets,
   fetchSpecies,
-  fetchResidents,
   fetchVehicles
 } from "../../api/starWarsApi";
 
@@ -21,6 +20,8 @@ export default function useApp() {
       setButtonClicked("error");
     } else {
       setData(cleanFilmData(response));
+      setButtonClicked("subjectData");
+      setCurrentSubject("films");
     }
   };
 
@@ -55,7 +56,7 @@ export default function useApp() {
         return await fetchPlanets(response);
         break;
       case "vehicles":
-        return await fetchVehicles(response);
+        return fetchVehicles(response);
         break;
       default:
         break;
@@ -65,13 +66,17 @@ export default function useApp() {
   const getSubjectData = async subject => {
     setButtonClicked("loading");
 
+    if (subject === "films") {
+      loadFilmData();
+      return;
+    }
+
     const response = await fetchSubject(subject);
 
     if (response.status >= 400) {
       setButtonClicked("error");
     } else {
-      const parsedResponse = response.json();
-      const allResults = await getNestedData(subject, parsedResponse.results);
+      const allResults = await getNestedData(subject, response.results);
 
       const formattedData = mutateFavoritedData(allResults);
 
