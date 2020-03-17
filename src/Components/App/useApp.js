@@ -120,8 +120,9 @@ export default function useApp() {
     });
     const favesIndex = favorites.indexOf(favesDataItem[0]);
     favorites.splice(favesIndex, 1);
+    let newFaves = [...favorites];
 
-    setFavorites(favorites);
+    setFavorites(newFaves);
     setData(data);
   };
 
