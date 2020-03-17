@@ -3,10 +3,9 @@ import PropTypes from "prop-types";
 import Card from "../Card/Card";
 import "./Favorites.css";
 
-const Favorites = ({ favoritesArray, toggleFavorite }) => {
-  console.log(favoritesArray);
-  const favoritedCards = () => {
-    if (favoritesArray.length > 0) {
+const Favorites = ({ favorites, toggleFavorite }) => {
+  const favoriteCards = () => {
+    if (favorites.length > 0) {
       return favoritesArray.map(obj => {
         return (
           <Card
@@ -32,11 +31,11 @@ const Favorites = ({ favoritesArray, toggleFavorite }) => {
     }
   };
 
-  return <div className="card-container">{favoritedCards()}</div>;
+  return <div className="card-container">{favoriteCards()}</div>;
 };
 
 Favorites.propTypes = {
-  favoritesArray: PropTypes.array,
+  favorites: PropTypes.array,
   toggleFavorite: PropTypes.func
 };
 

@@ -3,10 +3,10 @@ import Card from "../Card/Card";
 import PropTypes from "prop-types";
 import "./CardContainer.css";
 
-const CardContainer = ({ stateData, toggleFavorite }) => {
+const CardContainer = ({ data, toggleFavorite }) => {
   const subjectCards = () => {
-    if (stateData.length > 0) {
-      return stateData.map(obj => {
+    if (data.length > 0) {
+      return data.map(obj => {
         return (
           <Card
             key={obj.id}
@@ -22,7 +22,7 @@ const CardContainer = ({ stateData, toggleFavorite }) => {
 };
 
 CardContainer.propTypes = {
-  stateData: PropTypes.array,
+  data: PropTypes.array,
   toggleFavorite: PropTypes.func
 };
 
