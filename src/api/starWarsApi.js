@@ -27,7 +27,7 @@ export const fetchHomeWorld = peopleResults => {
 
 export const fetchPlanets = planetResults => {
   const planetArray = planetResults.map(async planet => {
-    return await await fetchResidents(planet.residents);
+    return await fetchResidents(planet.residents);
   });
 
   return Promise.all(planetArray).then(response => {
@@ -56,12 +56,11 @@ export const fetchResidents = async planetResidents => {
   );
 };
 
-export const fetchSpecies = (updatedPeopleResults, setError) => {
-  const completePeopleArray = updatedPeopleResults.map(person => {
-    return fetch(person.species[0]).then(response =>
-      response.status >= 400 ? setError("error") : response.json()
-    );
+export const fetchSpecies = updatedPeopleResults => {
+  const completePeopleArray = updatedPeopleResults.map(async person => {
+    return await fetchWrapper(person.species[0]);
   });
+
   return Promise.all(completePeopleArray).then(response => {
     return response.map((species, i) => {
       return Object.assign(updatedPeopleResults[i], {

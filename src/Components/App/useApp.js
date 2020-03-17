@@ -20,8 +20,6 @@ export default function useApp() {
       setButtonClicked("error");
     } else {
       setData(cleanFilmData(response));
-      setButtonClicked("subjectData");
-      setCurrentSubject("films");
     }
   };
 
@@ -44,12 +42,13 @@ export default function useApp() {
   const getNestedData = async (subject, response) => {
     switch (subject) {
       case "people":
-        const homeWorldResp = await fetchHomeWorld(response, setButtonClicked);
+        const homeResponse = await fetchHomeWorld(response);
 
         if (response.status >= 400) {
           setButtonClicked("error");
+          return;
         } else {
-          return await fetchSpecies(homeWorldResp.json());
+          return await fetchSpecies(homeResponse);
         }
         break;
       case "planets":
@@ -68,6 +67,8 @@ export default function useApp() {
 
     if (subject === "films") {
       loadFilmData();
+      setButtonClicked("subjectData");
+      setCurrentSubject("films");
       return;
     }
 
