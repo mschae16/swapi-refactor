@@ -19,13 +19,6 @@ const Favorites = ({ favorites, toggleFavorite }) => {
       return (
         <div className="empty-faves">
           <h3 className="empty-faves-title">Please favorite a card!</h3>
-          <div className="empty-image"></div>
-          <audio className="empty-faves-audio" autoPlay>
-            <source
-              src="http://www.thesoundarchive.com/starwars/star-wars-cantina-song.mp3"
-              autoPlay
-            />
-          </audio>
         </div>
       );
     }
