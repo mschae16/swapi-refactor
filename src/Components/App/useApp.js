@@ -20,9 +20,7 @@ export default function useApp() {
     if (response >= 400) {
       setButtonClicked("error");
     } else {
-      const parsedResponse = response.json();
-      debugger;
-      setData(cleanFilmData(parsedResponse.results));
+      setData(cleanFilmData(response));
     }
   };
 

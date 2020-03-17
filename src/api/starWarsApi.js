@@ -1,12 +1,12 @@
+import { fetchWrapper } from "./fetchWrapper";
+
 export const fetchSubject = async string => {
-  return await fetch(`https://swapi.co/api/${string}/`);
+  return await fetchWrapper(`https://swapi.co/api/${string}/`);
 };
 
-export const fetchHomeWorld = (peopleResults, setError) => {
-  const peopleArray = peopleResults.map(person => {
-    return fetch(person.homeworld).then(response =>
-      response.status >= 400 ? setError("error") : response.json()
-    );
+export const fetchHomeWorld = peopleResults => {
+  const peopleArray = peopleResults.map(async person => {
+    return await fetchWrapper(person.homeworld);
   });
 
   return Promise.all(peopleArray).then(response => {
@@ -27,7 +27,7 @@ export const fetchHomeWorld = (peopleResults, setError) => {
 
 export const fetchPlanets = planetResults => {
   const planetArray = planetResults.map(planet => {
-    const planetResidents = this.fetchResidents(planet.residents);
+    const planetResidents = fetchResidents(planet.residents);
     return planetResidents;
   });
 
