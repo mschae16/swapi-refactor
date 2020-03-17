@@ -6,7 +6,7 @@ import "./Favorites.css";
 const Favorites = ({ favorites, toggleFavorite }) => {
   const favoriteCards = () => {
     if (favorites.length > 0) {
-      return favoritesArray.map(obj => {
+      return favorites.map(obj => {
         return (
           <Card
             key={obj.id}
